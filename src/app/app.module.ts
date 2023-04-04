@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { InterventionComponent } from './intervention/intervention.component';
 import { ListInterventionComponent } from './list-intervention/list-intervention.component';
 import { FormInterventionComponent } from './form-intervention/form-intervention.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormInterventionComponent } from './form-intervention/form-intervention
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

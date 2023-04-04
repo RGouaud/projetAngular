@@ -1,1 +1,68 @@
-<p>form-intervention works!</p>
+<div>
+    <section>
+        <h2>Saisir intervention</h2>
+        <form [formGroup]="formulaire">
+            <h3>Information intervention</h3>
+            <div class="form-group">
+                <label for="nomTechnicien">Nom du technicien</label>
+                <input type="text" class="form-control" id="nomTechnicien" formControlName="nomTechnicien">
+            </div>
+            <div class="form-group">
+                <label for="dateIntervention">Date d'intervention</label>
+                <input type="date" class="form-control" id="dateIntervention" formControlName="dateIntervention">
+            </div>
+            <div class="form-group">
+                <label for="nomClient">Nom du client</label>
+                <input type="text" class="form-control" id="nomClient" formControlName="nomClient">
+            </div>
+            <div class="form-group">
+                <label for="adresseClient">Adresse du client</label>
+                <input type="text" class="form-control" id="adresseClient" formControlName="adresseClient">
+            </div>
+            
+            <div class="form-group">
+                <label for="descriptionIntervention">Description de l'intervention</label>
+                <input type="text" class="form-control" id="descriptionIntervention" formControlName="descriptionIntervention">
+            </div>
+            <div class="form-group">
+                <label for="tempsPasse">Temps passé</label>
+                <input type="number" class="form-control" id="tempsPasse" formControlName="tempsPasse">
+            </div>
+            <h3>Information chaudiere</h3>
+            <div class="form-group">
+                <label for="marqueChaudiere">Marque de la chaudière</label>
+                <input type="text" class="form-control" id="marqueChaudiere" formControlName="marqueChaudiere">
+            </div>
+            <div class="form-group">
+                <label for="modeleChaudiere">Modèle de la chaudière</label>
+                <input type="text" class="form-control" id="modeleChaudiere" formControlName="modeleChaudiere">
+            </div>
+            <div class="form-group">
+                <label for="dateMiseEnService">Date de mise en service</label>
+                <input type="date" class="form-control" id="dateMiseEnService" formControlName="dateMiseEnService">
+            </div>
+            <div class="form-group">
+                <label for="numeroSerie">Numéro de série</label>
+                <input type="text" class="form-control" id="numeroSerie" formControlName="numeroSerie">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="addInter()">Ajouter</button>
+        </form>
+    </section>
+    <section>
+        <h2>Preview fiche</h2>
+        <div *ngIf="currentInter$ | async as uneInter">
+            <h3>Information intervention</h3>
+            <p>{{ uneInter.nomTechnicien }}</p>
+            <p>{{ uneInter.dateIntervention | date: "dd/MM/yyyy"}}</p>
+            <p>{{ uneInter.nomClient }}</p>
+            <p>{{ uneInter.adresseClient }}</p>
+            <p>{{ uneInter.descriptionIntervention }}</p>
+            <p>{{ uneInter.tempsPasse }} h</p>
+            <h3>Chaudière :</h3>
+            <p>{{ uneInter.marqueChaudiere }}</p>
+            <p>{{ uneInter.modeleChaudiere }}</p>
+            <p>{{ uneInter.dateMiseEnService }}</p>
+            <p>{{ uneInter.numeroSerie }}</p>
+        </div>
+    </section>
+</div>

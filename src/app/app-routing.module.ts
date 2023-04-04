@@ -7,9 +7,9 @@ import { FormInterventionComponent } from './form-intervention/form-intervention
 
 const routes: Routes = [  
   {path: '', component: HomeComponent},
-{path: 'inter', component: ListInterventionComponent},
-{path: 'inter/:id', component : InterventionComponent},
-{path: 'formInter', component: FormInterventionComponent}
+  {path: 'intervention', component: ListInterventionComponent},
+  {path: 'intervention/:id', component : InterventionComponent},
+  {path: 'formIntervention', component: FormInterventionComponent}
 ];
 
 @NgModule({

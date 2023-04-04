@@ -1,1 +1,18 @@
 <p>intervention works!</p>
+
+<a routerLink="../intervention/{{ uneIntervention.id }}">
+    <div>
+        <h3>{{ uneIntervention.id }}</h3>
+        <p>{{ uneIntervention.dateIntervention | date: "dd/MM/yyyy"}}</p>
+        <p>{{ uneIntervention.nomClient }}</p>
+        <p>{{ uneIntervention.adresseClient }}</p>
+        <p>{{ uneIntervention.nomTechnicien }}</p>
+        <p>{{ uneIntervention.descriptionIntervention }}</p>
+        <p>{{ uneIntervention.tempsPasse }} h</p>
+        <p>Chaudière :</p>
+        <p>{{ uneIntervention.marqueChaudiere }}</p>
+        <p>{{ uneIntervention.modeleChaudiere }}</p>
+        <p>{{ uneIntervention.dateMiseEnService }}</p>
+        <p>{{ uneIntervention.numeroSerie }}</p>
+    </div>
+</a>
