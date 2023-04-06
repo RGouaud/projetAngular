@@ -45,7 +45,7 @@
                 <label for="numeroSerie">Numéro de série</label>
                 <input type="text" class="form-control" id="numeroSerie" formControlName="numeroSerie">
             </div>
-            <button type="submit" class="btn btn-primary" (click)="addInter()">Ajouter</button>
+            <button type="submit" class="btn btn-primary" (click)="addInter()" [disabled]="formulaire.invalid">Ajouter</button>
         </form>
     </section>
     <section>

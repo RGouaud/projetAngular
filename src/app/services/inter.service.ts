@@ -31,7 +31,10 @@ export class IntersService {
     return this.getAllInter().pipe( // pipe = chainage de fonctions 
       map(inters => [...inters].sort((a,b) => a.id - b.id)), //map = appliquer une fonction, ici on trie
       map(inters_tries => inters_tries[inters_tries.length - 1]), //map = appliquer une fonction, ici on prend le dernier
-      map(inter_max => (inter.id=inter_max.id+1)), //map = appliquer une fonction, ici on incrémente le dernier + 1
+      map(inter_max => {
+        inter.id = inter_max.id + 1;
+        return inter;
+      }), //map = appliquer une fonction, ici on incrémente le dernier + 1
       switchMap(inter => this.http.post<Inter>('http://localhost:3001/INTERVENTION', inter)) // déclenche l'envoi
     );
   }

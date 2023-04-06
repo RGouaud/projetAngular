@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
 import { Inter } from '../models/inter';
 import { IntersService } from '../services/inter.service';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-form-intervention',
@@ -50,25 +50,27 @@ export class FormInterventionComponent {
     })));
   }
 
-  addInter(){
+
+
+  addInter(): void{
     let newInter: Inter = {
       id:0,
-      nomTechnicien: this.formulaire.get("nomTechnicien")?.value,
-      dateIntervention: this.formulaire.get("dateIntervention")?.value,
-      nomClient: this.formulaire.get("nomClient")?.value,
-      adresseClient: this.formulaire.get("adresseClient")?.value,
-      descriptionIntervention: this.formulaire.get("descriptionIntervention")?.value,
-      tempsPasse: this.formulaire.get("tempsPasse")?.value,
-      marqueChaudiere: this.formulaire.get("marqueChaudiere")?.value,
-      modeleChaudiere: this.formulaire.get("modeleChaudiere")?.value,
-      dateMiseEnService: this.formulaire.get("dateMiseEnService")?.value,
-      numeroSerie: this.formulaire.get("numeroSerie")?.value
+      nomTechnicien: this.formulaire.get('nomTechnicien')?.value,
+      nomClient: this.formulaire.get('nomClient')?.value,
+      adresseClient: this.formulaire.get('adresseClient')?.value,
+      marqueChaudiere: this.formulaire.get('marqueChaudiere')?.value,
+      modeleChaudiere: this.formulaire.get('modeleChaudiere')?.value,
+      dateMiseEnService: this.formulaire.get('dateMiseEnService')?.value,
+      dateIntervention: this.formulaire.get('dateIntervention')?.value,
+      numeroSerie: this.formulaire.get('numeroSerie')?.value,
+      descriptionIntervention: this.formulaire.get('descriptionIntervention')?.value,
+      tempsPasse: this.formulaire.get('tempsPasse')?.value,
     };
 
     console.log(newInter);
 
-    this.intersService.addInter(newInter).pipe(
-      tap(() => this.router.navigate(['/intervention'])
-      )).subscribe();
+    this.intersService.addInter(newInter).pipe( 
+      tap(() => this.router.navigate(['/intervention']))
+      ).subscribe();
   }
 }
