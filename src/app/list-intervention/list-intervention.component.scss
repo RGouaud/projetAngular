@@ -1,0 +1,24 @@
+.intervention-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .intervention-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 100px;
+  }
+  
+  .intervention-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .intervention-table tr:hover {background-color: #ddd;}
+  
+  .intervention-table td h3 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .intervention-table td p {
+    margin: 0;
+  }

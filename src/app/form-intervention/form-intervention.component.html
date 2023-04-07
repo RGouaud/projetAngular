@@ -1,68 +1,82 @@
 <div>
     <section>
-        <h2>Saisir intervention</h2>
-        <form [formGroup]="formulaire">
-            <h3>Information intervention</h3>
-            <div class="form-group">
-                <label for="nomTechnicien">Nom du technicien</label>
-                <input type="text" class="form-control" id="nomTechnicien" formControlName="nomTechnicien">
-            </div>
-            <div class="form-group">
-                <label for="dateIntervention">Date d'intervention</label>
-                <input type="date" class="form-control" id="dateIntervention" formControlName="dateIntervention">
-            </div>
-            <div class="form-group">
-                <label for="nomClient">Nom du client</label>
-                <input type="text" class="form-control" id="nomClient" formControlName="nomClient">
-            </div>
-            <div class="form-group">
-                <label for="adresseClient">Adresse du client</label>
-                <input type="text" class="form-control" id="adresseClient" formControlName="adresseClient">
-            </div>
-            
-            <div class="form-group">
-                <label for="descriptionIntervention">Description de l'intervention</label>
-                <input type="text" class="form-control" id="descriptionIntervention" formControlName="descriptionIntervention">
-            </div>
-            <div class="form-group">
-                <label for="tempsPasse">Temps passé</label>
-                <input type="number" class="form-control" id="tempsPasse" formControlName="tempsPasse">
-            </div>
-            <h3>Information chaudiere</h3>
-            <div class="form-group">
-                <label for="marqueChaudiere">Marque de la chaudière</label>
-                <input type="text" class="form-control" id="marqueChaudiere" formControlName="marqueChaudiere">
-            </div>
-            <div class="form-group">
-                <label for="modeleChaudiere">Modèle de la chaudière</label>
-                <input type="text" class="form-control" id="modeleChaudiere" formControlName="modeleChaudiere">
-            </div>
-            <div class="form-group">
-                <label for="dateMiseEnService">Date de mise en service</label>
-                <input type="date" class="form-control" id="dateMiseEnService" formControlName="dateMiseEnService">
-            </div>
-            <div class="form-group">
-                <label for="numeroSerie">Numéro de série</label>
-                <input type="text" class="form-control" id="numeroSerie" formControlName="numeroSerie">
-            </div>
-            <button type="submit" class="btn btn-primary" (click)="addInter()" [disabled]="formulaire.invalid">Ajouter</button>
-        </form>
+      <h2>Saisir intervention</h2>
+      <form [formGroup]="formulaire">
+        <h3>Information intervention</h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Nom du technicien</mat-label>
+          <input matInput formControlName="nomTechnicien" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Date d'intervention</mat-label>
+          <input matInput formControlName="dateIntervention" [matDatepicker]="picker" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Nom du client</mat-label>
+          <input matInput formControlName="nomClient" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Adresse du client</mat-label>
+          <input matInput formControlName="adresseClient" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Description de l'intervention</mat-label>
+          <input matInput formControlName="descriptionIntervention" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Temps passé</mat-label>
+          <input matInput type="number" formControlName="tempsPasse" required>
+        </mat-form-field>
+  
+        <h3>Information chaudiere</h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Marque de la chaudière</mat-label>
+          <input matInput formControlName="marqueChaudiere" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Modèle de la chaudière</mat-label>
+          <input matInput formControlName="modeleChaudiere" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Date de mise en service</mat-label>
+          <input matInput formControlName="dateMiseEnService" [matDatepicker]="picker2" required>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Numéro de série</mat-label>
+          <input matInput formControlName="numeroSerie" required>
+        </mat-form-field>
+  
+        <button mat-button color="primary" type="submit" (click)="addInter()" [disabled]="formulaire.invalid">Ajouter</button>
+      </form>
     </section>
     <section>
-        <h2>Preview fiche</h2>
-        <div *ngIf="currentInter$ | async as uneInter">
-            <h3>Information intervention</h3>
-            <p>{{ uneInter.nomTechnicien }}</p>
-            <p>{{ uneInter.dateIntervention | date: "dd/MM/yyyy"}}</p>
-            <p>{{ uneInter.nomClient }}</p>
-            <p>{{ uneInter.adresseClient }}</p>
-            <p>{{ uneInter.descriptionIntervention }}</p>
-            <p>{{ uneInter.tempsPasse }} h</p>
-            <h3>Chaudière :</h3>
-            <p>{{ uneInter.marqueChaudiere }}</p>
-            <p>{{ uneInter.modeleChaudiere }}</p>
-            <p>{{ uneInter.dateMiseEnService }}</p>
-            <p>{{ uneInter.numeroSerie }}</p>
+      <h2>Preview fiche</h2>
+      <div *ngIf="currentInter$ | async as uneInter">
+        <h3>Information intervention</h3>
+        <p>{{ uneInter.nomTechnicien }}</p>
+        <p>{{ uneInter.dateIntervention | date: "dd/MM/yyyy"}}</p>
+        <p>{{ uneInter.nomClient }}</p>
+        <p>{{ uneInter.adresseClient }}</p>
+        <p>{{ uneInter.descriptionIntervention }}</p>
+        <p>{{ uneInter.tempsPasse }} h</p>
+        <h3>Chaudière :</h3>
+        <p>{{ uneInter.marqueChaudiere }}</p>
+        <p>{{ uneInter.modeleChaudiere }}</p>
+        <p>{{ uneInter.dateMiseEnService | date: "dd/MM/yyyy"}}</p>
+        <p>{{ uneInter.numeroSerie }}</p>
         </div>
     </section>
 </div>
+

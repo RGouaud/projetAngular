@@ -1,18 +1,21 @@
-<p>intervention works!</p>
-
+<br> <br> <br>
 <a routerLink="../intervention/{{ uneIntervention.id }}">
-    <div>
-        <h3>{{ uneIntervention.id }}</h3>
-        <p>{{ uneIntervention.dateIntervention | date: "dd/MM/yyyy"}}</p>
-        <p>{{ uneIntervention.nomClient }}</p>
-        <p>{{ uneIntervention.adresseClient }}</p>
-        <p>{{ uneIntervention.nomTechnicien }}</p>
-        <p>{{ uneIntervention.descriptionIntervention }}</p>
-        <p>{{ uneIntervention.tempsPasse }} h</p>
-        <p>Chaudière :</p>
-        <p>{{ uneIntervention.marqueChaudiere }}</p>
-        <p>{{ uneIntervention.modeleChaudiere }}</p>
-        <p>{{ uneIntervention.dateMiseEnService }}</p>
-        <p>{{ uneIntervention.numeroSerie }}</p>
-    </div>
-</a>
+    <table class="intervention-table">
+      <tbody>
+        <tr>
+          <td><h3>{{ uneIntervention.id }}</h3></td>
+          <td><p>{{ uneIntervention.dateIntervention | date: "dd/MM/yyyy"}}</p></td>
+          <td><p>{{ uneIntervention.nomClient }}</p></td>
+          <td><p>{{ uneIntervention.adresseClient }}</p></td>
+          <td><p>{{ uneIntervention.nomTechnicien }}</p></td>
+          <td><p>{{ uneIntervention.descriptionIntervention }}</p></td>
+          <td><p>{{ uneIntervention.tempsPasse }} h</p></td>
+          <td><p>{{ uneIntervention.marqueChaudiere }}</p></td>
+          <td><p>{{ uneIntervention.modeleChaudiere }}</p></td>
+          <td><p>{{ uneIntervention.dateMiseEnService }}</p></td>
+          <td><p>{{ uneIntervention.numeroSerie }}</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+  </a>

@@ -1,8 +1,11 @@
-<div>
-    <h1>SOS Chaudière</h1>
-    <nav>
-        <a routerLink="/">Accueil</a>
-        <a routerLink="/intervention">Liste des interventions</a>
-        <a routerLink="/formIntervention">Ajouter un rapport d'intervention</a>
-    </nav>
+<header class="navbar">
+    <div id="navigation-bar">
+        <nav>
+            <ul>
+                <li><a routerLink="/" [ngClass]="{ 'active' : selectedTab ==='tabAccueil'}">Accueil</a></li>
+                <li><a routerLink="/intervention" [ngClass]="{ 'active' : selectedTab ==='tabIntervention'}">Liste des interventions</a></li>
+                <li><a routerLink="/formIntervention"[ngClass]="{ 'active' : selectedTab ==='tabForm'}">Ajouter un rapport d'intervention</a></li>
+            </ul>
+        </nav>
     </div>
+</header>
